@@ -6,7 +6,6 @@ Collection of renovate configs that we use
 
 Flux Cluster:
 ```json
-// .github/renovate.json
 {
   "extends": ["github>remotecompany/renovate-config:flux"]
 }
