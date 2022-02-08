@@ -1,0 +1,42 @@
+{
+    "semanticCommits": "enabled",
+    "dependencyDashboard": true,
+    "dependencyDashboardTitle": "Renovate Dashboard",
+    "suppressNotifications": ["prIgnoreNotification"],
+    "rebaseWhen": "conflicted",
+    "labels": ["renovate"],
+    "enabledManagers": ["dockerfile", "regex", "docker-compose"],
+    "dockerfile": {
+        "fileMatch": ["^Makefile$"]
+    },
+    "regexManagers": [
+        {
+            "fileMatch": ["^Makefile$"],
+            "matchStrings": [
+              "OCTOPUS_IMAGE := (?:.*?\/remotecompany\/)(?<depName>.*?):(?<currentValue>.*?[a-f0-9].*)"
+            ],
+            "datasourceTemplate": "docker"
+          },
+          {
+            "fileMatch": ["(^|\/|.)Dockerfile$"],
+            "matchStrings": [
+              "FROM (?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?"
+            ],
+            "datasourceTemplate": "docker"
+          },
+          {
+            "fileMatch": ["(?:^|.workflows\/).+.(?:yaml|yml)$"],
+            "matchStrings": [
+              "image: \"(?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?\""
+            ],
+            "datasourceTemplate": "docker"
+          }
+    ],
+    "packageRules": [
+        {
+        "matchDatasources": ["docker"],
+        "labels": ["docker-update"],
+        "registryUrls": ["https://europe-docker.pkg.dev/remotecompany/"]
+        }
+    ]
+}
