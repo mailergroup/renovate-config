@@ -6,7 +6,7 @@
     "rebaseWhen": "conflicted",
     "labels": ["renovate"],
     "enabledManagers": ["dockerfile", "regex", "docker-compose"],
-    "branchTopic": ""{{{depNameSanitized}}}-{{{newMajor}}}.{{{newMinor}}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}""
+    "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}.{{{newMinor}}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}"
     "dockerfile": {
         "fileMatch": ["^Makefile$"]
     },
