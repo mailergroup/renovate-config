@@ -28,7 +28,7 @@
           {
             "fileMatch": ["(?:^|.workflows\/).+.(?:yaml|yml)$"],
             "matchStrings": [
-              "image: (?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?"
+              "image: \"(?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?\""
             ],
             "datasourceTemplate": "docker"
           }
