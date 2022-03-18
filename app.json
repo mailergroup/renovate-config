@@ -26,18 +26,29 @@
             "datasourceTemplate": "docker"
           },
           {
-            "fileMatch": ["(?:^|.workflows\/).+.(?:yaml|yml)$"],
+            "fileMatch": [".github\/workflows\/.*.yaml"],
             "matchStrings": [
-              "image: \"(?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?\""
+              "image: (?:\"*)(?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?(?:\"*)"
             ],
             "datasourceTemplate": "docker"
+          },
+          {
+            "fileMatch": ["helm/values.(?:dev|prod|staging|production).yaml"],
+            "matchStrings": [
+                "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?image: .*?:(?<currentValue>.*)"
+            ],
+            "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
           }
     ],
     "packageRules": [
         {
-        "matchDatasources": ["docker"],
-        "labels": ["docker-update"],
-        "registryUrls": ["https://europe-docker.pkg.dev/remotecompany/"]
+            "matchDatasources": ["docker"],
+            "labels": ["docker-update"],
+            "registryUrls": ["https://europe-docker.pkg.dev/remotecompany/"]
+        },
+        {
+            "matchPackagePatterns": ["groot"],
+            "addLabels": ["groot"]
         }
     ]
 }
