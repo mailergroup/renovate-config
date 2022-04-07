@@ -1,7 +1,7 @@
 {
     "semanticCommits": "enabled",
-    "dependencyDashboard": false,
-    "dependencyDashboardTitle": "Renovate Dashboard",
+    "dependencyDashboard": true,
+    "dependencyDashboardTitle": "SRE Renovate Dashboard",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "labels": ["renovate"],
