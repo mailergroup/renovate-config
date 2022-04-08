@@ -1,6 +1,6 @@
 {
     "semanticCommits": "enabled",
-    "username": "ziltoidbot[bot]",
+    "renovateUsername": "ziltoidbot",
     "dependencyDashboard": true,
     "dependencyDashboardTitle": "SRE Renovate Dashboard",
     "suppressNotifications": ["prIgnoreNotification"],
