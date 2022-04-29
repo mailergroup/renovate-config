@@ -10,6 +10,7 @@
     "dockerfile": {
         "fileMatch": ["^Makefile$"]
     },
+    "ignorePaths": [".github/workflows/test.yaml"],
     "regexManagers": [
         {
             "fileMatch": ["^Makefile$"],
@@ -26,7 +27,7 @@
             "datasourceTemplate": "docker"
           },
           {
-            "fileMatch": [".github\/workflows\/(?!test).*.yaml"],
+            "fileMatch": [".github\/workflows\/.*.yaml"],
             "matchStrings": [
               "image: (?:\"*)(?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?(?:\"*)"
             ],
