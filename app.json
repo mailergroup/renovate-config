@@ -15,21 +15,21 @@
         {
             "fileMatch": ["^Makefile$"],
             "matchStrings": [
-              "OCTOPUS_IMAGE := (?:.*?\/remotecompany\/)(?<depName>.*?):(?<currentValue>.*?[a-f0-9].*)"
+              "OCTOPUS_IMAGE := (?:.*?\/mailergroup\/)(?<depName>.*?):(?<currentValue>.*?[a-f0-9].*)"
             ],
             "datasourceTemplate": "docker"
           },
           {
             "fileMatch": ["(^|\/|.)Dockerfile$"],
             "matchStrings": [
-              "FROM (?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?"
+              "FROM (?:.*?\/mailergroup\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?"
             ],
             "datasourceTemplate": "docker"
           },
           {
             "fileMatch": [".github\/workflows\/.*.yaml"],
             "matchStrings": [
-              "image: (?:\"*)(?:.*?\/remotecompany\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?(?:\"*)"
+              "image: (?:\"*)(?:.*?\/mailergroup\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?(?:\"*)"
             ],
             "datasourceTemplate": "docker"
           },
@@ -45,7 +45,7 @@
         {
             "matchDatasources": ["docker"],
             "labels": ["docker-update"],
-            "registryUrls": ["https://europe-docker.pkg.dev/remotecompany/"]
+            "registryUrls": ["https://europe-docker.pkg.dev/mailergroup/"]
         },
         {
             "matchPackagePatterns": ["groot"],
