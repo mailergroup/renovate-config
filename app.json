@@ -48,6 +48,10 @@
             "registryUrls": ["https://europe-docker.pkg.dev/mailergroup/"]
         },
         {
+            "matchPackagePatterns": ["elasticsearch"],
+            "matchUpdateTypes": ["patch", "minor"]
+        },
+        {
             "matchPackagePatterns": ["groot"],
             "addLabels": ["groot"]
         }
