@@ -52,6 +52,11 @@
             "matchUpdateTypes": ["patch", "minor"]
         },
         {
+            "matchPackagePatterns": ["elasticsearch"],
+            "matchUpdateTypes": ["major"],
+            "enabled": false
+        },
+        {
             "matchPackagePatterns": ["groot"],
             "addLabels": ["groot"]
         }
