@@ -13,7 +13,7 @@
     "ignorePaths": [".github/workflows/test.yaml"],
     "regexManagers": [
         {
-          "fileMatch": ["^Dockerfile$"],
+          "fileMatch": ["(^|\/|.)Dockerfile$"],
           "matchStrings": [
             "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
           ],
