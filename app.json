@@ -1,7 +1,6 @@
 {
     "semanticCommits": "enabled",
-    "dependencyDashboard": true,
-    "username": "ziltoidbot",
+    "dependencyDashboard": false,
     "dependencyDashboardTitle": "SRE Renovate Dashboard",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
@@ -11,7 +10,6 @@
     "dockerfile": {
         "fileMatch": ["^Makefile$"]
     },
-    "gitAuthor": "devops@mailerlite.com",
     "ignorePaths": [".github/workflows/test.yaml"],
     "regexManagers": [
         {
