@@ -36,7 +36,7 @@
           {
             "fileMatch": [".github\/workflows\/.*.yaml"],
             "matchStrings": [
-              "image: (?:\"*)(?:.*?\/mailergroup\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?(?:\"*)"
+              "image: (?:"*)(?:.*?\/mailergroup\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?(?:"*)"
             ],
             "datasourceTemplate": "docker"
           },
