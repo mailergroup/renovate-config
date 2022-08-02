@@ -5,7 +5,7 @@
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "labels": ["renovate"],
-    "renovateUsername": "renovate[bot]",
+    "renovateUsername": "ziltoidbot",
     "enabledManagers": ["dockerfile", "regex", "docker-compose"],
     "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}.{{{newMinor}}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
     "dockerfile": {
