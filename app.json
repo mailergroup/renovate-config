@@ -54,6 +54,12 @@
             "registryUrls": ["https://europe-docker.pkg.dev/mailergroup/"]
         },
         {
+            "matchPackagePatterns": ["landings"],
+            "matchDatasources": ["docker"],
+            "labels": ["docker-update"],
+            "registryUrls": ["https://europe-docker.pkg.dev/mailerlite-v2/"]
+        },
+        {
             "matchPackagePatterns": ["elasticsearch"],
             "matchUpdateTypes": ["patch", "minor"]
         },
