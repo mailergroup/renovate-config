@@ -1,6 +1,6 @@
 {
     "semanticCommits": "enabled",
-    "dependencyDashboard": false,
+    "dependencyDashboard": true,
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "labels": ["renovate"],
