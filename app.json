@@ -48,6 +48,7 @@
     ],
     "packageRules": [
         {
+            "matchPackagePatterns": ["octopus", "swiss-army-knife"],
             "matchDatasources": ["docker"],
             "labels": ["docker-update"],
             "registryUrls": ["https://europe-docker.pkg.dev/mailergroup/"]
