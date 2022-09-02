@@ -4,7 +4,7 @@
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "labels": ["renovate"],
-    "enabledManagers": ["dockerfile", "regex", "docker-compose"],
+    "enabledManagers": ["dockerfile", "regex", "docker-compose", "helmv3"],
     "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}.{{{newMinor}}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
     "dockerfile": {
         "fileMatch": ["^Makefile$"]
@@ -49,15 +49,16 @@
     "packageRules": [
         {
             "matchPackagePatterns": ["octopus", "swiss-army-knife"],
-            "matchDatasources": ["docker"],
-            "labels": ["docker-update"],
             "registryUrls": ["https://europe-docker.pkg.dev/mailergroup/"]
         },
         {
             "matchPackagePatterns": ["europe-docker.pkg.dev/mailerlite-v2/landings/landings"],
-            "matchDatasources": ["docker"],
-            "labels": ["docker-update"],
             "registryUrls": ["https://europe-docker.pkg.dev/mailerlite-v2/"]
+        },
+        {
+            "matchDatasources": ["docker"],
+            "labels": ["docker"],
+            "reviewers": ["team:sre"]
         },
         {
             "matchPackagePatterns": ["elasticsearch"],
@@ -71,6 +72,11 @@
         {
             "matchPackagePatterns": ["groot"],
             "addLabels": ["groot"]
-        }
+        },
+        {
+            "matchDatasources": ["helm"],
+            "addLabels": ["helm"],
+            "reviewers": ["team:sre"]
+        },
     ]
 }
