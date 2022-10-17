@@ -71,7 +71,8 @@
         },
         {
             "matchPackagePatterns": ["groot"],
-            "addLabels": ["groot"]
+            "addLabels": ["groot"],
+            "reviewers": []
         },
         {
             "matchDatasources": ["helm"],
