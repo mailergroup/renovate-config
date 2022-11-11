@@ -56,6 +56,10 @@
             "registryUrls": ["https://europe-docker.pkg.dev/mailerlite-v2/"]
         },
         {
+            "matchPackagePatterns": ["europe-docker.pkg.dev/mailergroup/groot/groot"],
+            "registryUrls": ["https://europe-docker.pkg.dev/mailergroup/"]
+        },
+        {
             "matchDatasources": ["docker"],
             "labels": ["docker"],
             "reviewers": ["team:sre"]
