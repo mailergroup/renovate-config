@@ -13,7 +13,7 @@
         {
           "fileMatch": ["(^|\/|.)Dockerfile$"],
           "matchStrings": [
-            "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
+            '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( extractVersion=(?<extractVersion>.+?))?( versioning=(?<versioning>.*?))?\n.*?_VERSION=["]?(?<currentValue>.*[^"\\n])'
           ],
           "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
         },
