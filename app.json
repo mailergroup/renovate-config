@@ -4,7 +4,7 @@
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "labels": ["renovate"],
-    "enabledManagers": ["dockerfile", "regex", "docker-compose", "helmv3"],
+    "enabledManagers": ["dockerfile", "regex", "docker-compose", "helmv3", "github-actions"],
     "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}.{{{newMinor}}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
     "dockerfile": {
         "fileMatch": ["^Makefile$"]
@@ -61,7 +61,12 @@
         },
         {
             "matchDatasources": ["docker"],
-            "labels": ["docker"],
+            "addLabels": ["docker"],
+            "reviewers": ["team:sre"]
+        },
+        {
+            "matchDatasources": ["github-actions"],
+            "addLabels": ["github"],
             "reviewers": ["team:sre"]
         },
         {
