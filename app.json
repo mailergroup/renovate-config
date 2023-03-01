@@ -88,5 +88,9 @@
             "addLabels": ["helm"],
             "reviewers": ["team:sre"]
         },
+        {
+            "matchDatasources": ["github-releases"],
+            "reviewers": ["team:sre"]
+        },
     ]
 }
