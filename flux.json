@@ -16,13 +16,15 @@
   ],
   "helm-values": {
     "fileMatch": [
-      "clusters/.+/helm-release\\.yaml$"
+      "clusters/.+/helm-release\\.yaml$",
+      "base/.+/helm-release\\.yaml$"
     ]
   },
   "regexManagers": [
     {
       "fileMatch": [
-        "clusters/.+\\.yaml$"
+        "clusters/.+\\.yaml$",
+        "base/.+\\.yaml$"
       ],
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*)\n *version: (?<currentValue>.*)"
