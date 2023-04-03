@@ -30,6 +30,13 @@
         "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*)\n *version: (?<currentValue>.*)"
       ],
       "datasourceTemplate": "helm"
+    },
+    {
+      "fileMatch": ["^base/.+/helm-release.yaml$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?tag: .*?(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
@@ -44,6 +51,10 @@
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch"]
+    },
+    {
+      "matchPackagePatterns": ["^victoriametrics"],
+      "additionalBranchPrefix": "{{baseDir}}-",
     },
     {
       "matchDatasources": ["helm"],
