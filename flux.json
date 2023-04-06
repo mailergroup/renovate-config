@@ -17,7 +17,8 @@
   "helm-values": {
     "fileMatch": [
       "clusters/.+/helm-release\\.yaml$",
-      "base/.+/helm-release\\.yaml$"
+      "base/.+/helm-release\\.yaml$",
+      "components/.+/helm-release\\.yaml$"
     ]
   },
   "regexManagers": [
