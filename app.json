@@ -39,7 +39,7 @@
             "datasourceTemplate": "docker"
           },
           {
-            "fileMatch": ["helm/values.(?:dev|prod|staging|production).(?:yaml|yml)"],
+            "fileMatch": ["(?:helm|helmchart)/values.(?:dev|prod|staging|production).(?:yaml|yml)"],
             "matchStrings": [
                 "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?image: .*?:(?<currentValue>.*)"
             ],
