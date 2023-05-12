@@ -4,7 +4,7 @@
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "labels": ["renovate"],
-    "enabledManagers": ["dockerfile", "regex", "docker-compose", "helmv3", "github-actions"],
+    "enabledManagers": ["regex", "docker-compose", "helmv3", "github-actions"],
     "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}.{{{newMinor}}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
     "dockerfile": {
         "fileMatch": ["^Makefile$"]
