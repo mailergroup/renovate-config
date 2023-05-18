@@ -38,6 +38,13 @@
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?tag: .*?(?<currentValue>.*)"
       ],
       "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^.pre-commit-config.yaml$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?rev: .*?(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
