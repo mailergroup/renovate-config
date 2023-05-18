@@ -1,86 +1,106 @@
 {
-  "semanticCommits": "enabled",
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Renovate Dashboard",
-  "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "conflicted",
-  "labels": ["renovate"],
-  "ignoreDeps": [
-    "ghcr.io/fluxcd/helm-controller",
-    "ghcr.io/fluxcd/image-automation-controller",
-    "ghcr.io/fluxcd/image-reflector-controller",
-    "ghcr.io/fluxcd/kustomize-controller",
-    "ghcr.io/fluxcd/notification-controller",
-    "ghcr.io/fluxcd/source-controller",
-    "fluxcd/flux2"
-  ],
-  "helm-values": {
-    "fileMatch": [
-      "clusters/.+/helm-release\\.yaml$",
-      "base/.+/helm-release\\.yaml$",
-      "components/.+/helm-release\\.yaml$"
+    "extends":[
+        "github>mailergroup/renovate-config:base"
+    ],
+    "enabledManagers":[
+        "regex",
+        "github-actions"
+    ],
+    "regexManagers":[
+        {
+            "fileMatch":[
+                "clusters/.+\\.yaml$",
+                "base/.+\\.yaml$"
+            ],
+            "matchStrings":[
+                "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*)\n *version: (?<currentValue>.*)"
+            ],
+            "datasourceTemplate":"helm"
+        },
+        {
+            "fileMatch":[
+                "^base/.+/helm-release.yaml$"
+            ],
+            "matchStrings":[
+                "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?tag: .*?(?<currentValue>.*)"
+            ],
+            "datasourceTemplate":"docker"
+        },
+        {
+            "fileMatch":[
+                "^.pre-commit-config.yaml$"
+            ],
+            "matchStrings":[
+                "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?rev: .*?(?<currentValue>.*)"
+            ],
+            "datasourceTemplate":"github-releases"
+        }
+    ],
+    "packageRules":[
+        {
+            "matchDatasources":[
+                "helm"
+            ],
+            "separateMinorPatch":true,
+            "ignoreDeprecated":true
+        },
+        {
+            "matchDatasources":[
+                "docker"
+            ],
+            "enabled":true,
+            "commitMessageTopic":"container image {{depName}}",
+            "commitMessageExtra":"to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+            "matchUpdateTypes":[
+                "major",
+                "minor",
+                "patch"
+            ]
+        },
+        {
+            "matchPackagePatterns":[
+                "^victoriametrics"
+            ],
+            "additionalBranchPrefix":"{{baseDir}}-"
+        },
+        {
+            "matchDatasources":[
+                "helm"
+            ],
+            "additionalBranchPrefix":"{{baseDir}}-",
+            "matchUpdateTypes":[
+                "major"
+            ],
+            "addLabels":[
+                "helm",
+                "major"
+            ]
+        },
+        {
+            "matchDatasources":[
+                "helm"
+            ],
+            "additionalBranchPrefix":"{{baseDir}}-",
+            "matchUpdateTypes":[
+                "minor"
+            ],
+            "addLabels":[
+                "helm",
+                "minor"
+            ]
+        },
+        {
+            "matchDatasources":[
+                "helm"
+            ],
+            "additionalBranchPrefix":"{{baseDir}}-",
+            "matchUpdateTypes":[
+                "patch"
+            ],
+            "addLabels":[
+                "helm",
+                "patch"
+            ]
+        }
     ]
-  },
-  "regexManagers": [
-    {
-      "fileMatch": [
-        "clusters/.+\\.yaml$",
-        "base/.+\\.yaml$"
-      ],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?) chart=(?<depName>.*)\n *version: (?<currentValue>.*)"
-      ],
-      "datasourceTemplate": "helm"
-    },
-    {
-      "fileMatch": ["^base/.+/helm-release.yaml$"],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?tag: .*?(?<currentValue>.*)"
-      ],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "fileMatch": ["^.pre-commit-config.yaml$"],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?rev: .*?(?<currentValue>.*)"
-      ],
-      "datasourceTemplate": "github-releases"
-    }
-  ],
-  "packageRules": [
-    {
-      "matchDatasources": ["helm"],
-      "separateMinorPatch": true,
-      "ignoreDeprecated": true
-    },
-    {
-      "matchDatasources": ["docker"],
-      "enabled": true,
-      "commitMessageTopic": "container image {{depName}}",
-      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
-      "matchUpdateTypes": ["major", "minor", "patch"]
-    },
-    {
-      "matchPackagePatterns": ["^victoriametrics"],
-      "additionalBranchPrefix": "{{baseDir}}-",
-    },
-    {
-      "matchDatasources": ["helm"],
-      "additionalBranchPrefix": "{{baseDir}}-",
-      "matchUpdateTypes": ["major"],
-      "addLabels": ["helm", "major"]
-    },
-    {
-      "matchDatasources": ["helm"],
-      "additionalBranchPrefix": "{{baseDir}}-",
-      "matchUpdateTypes": ["minor"],
-      "addLabels": ["helm", "minor"]
-    },
-    {
-      "matchDatasources": ["helm"],
-      "additionalBranchPrefix": "{{baseDir}}-",
-      "matchUpdateTypes": ["patch"],
-      "addLabels": ["helm", "patch"]
-    }
-  ]
 }
