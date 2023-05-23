@@ -42,65 +42,15 @@
                 "helm"
             ],
             "separateMinorPatch":true,
-            "ignoreDeprecated":true
-        },
-        {
-            "matchDatasources":[
-                "docker"
-            ],
-            "enabled":true,
-            "commitMessageTopic":"container image {{depName}}",
-            "commitMessageExtra":"to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
-            "matchUpdateTypes":[
-                "major",
-                "minor",
-                "patch"
-            ]
+            "ignoreDeprecated":true,
+            "additionalBranchPrefix":"{{baseDir}}-",
+            "addLabels":["helm"]
         },
         {
             "matchPackagePatterns":[
                 "^victoriametrics"
             ],
             "additionalBranchPrefix":"{{baseDir}}-"
-        },
-        {
-            "matchDatasources":[
-                "helm"
-            ],
-            "additionalBranchPrefix":"{{baseDir}}-",
-            "matchUpdateTypes":[
-                "major"
-            ],
-            "addLabels":[
-                "helm",
-                "major"
-            ]
-        },
-        {
-            "matchDatasources":[
-                "helm"
-            ],
-            "additionalBranchPrefix":"{{baseDir}}-",
-            "matchUpdateTypes":[
-                "minor"
-            ],
-            "addLabels":[
-                "helm",
-                "minor"
-            ]
-        },
-        {
-            "matchDatasources":[
-                "helm"
-            ],
-            "additionalBranchPrefix":"{{baseDir}}-",
-            "matchUpdateTypes":[
-                "patch"
-            ],
-            "addLabels":[
-                "helm",
-                "patch"
-            ]
         }
     ]
 }
