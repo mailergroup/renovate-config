@@ -9,7 +9,7 @@
     "regexManagers":[
         {
             "fileMatch":[
-                "mailer/.+\\.yaml$",
+                "mailer.+\\.yaml$",
                 "clusters/.+\\.yaml$",
                 "base/.+\\.yaml$"
             ],
