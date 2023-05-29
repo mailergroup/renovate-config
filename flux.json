@@ -45,7 +45,7 @@
             "separateMinorPatch":true,
             "ignoreDeprecated":true,
             "additionalBranchPrefix":"{{baseDir}}-",
-            "addLabels":["helm", "{{#if (containsString packageFileDir 'clusters/dev')}}dev{{else}}prod{{/if}}"]
+            "addLabels":["helm", "{{#if (containsString packageFileDir 'clusters/staging')}}staging{{/if}}", "{{#if (containsString packageFileDir 'clusters/dev')}}dev{{/if}}", "{{#if (containsString packageFileDir 'clusters/prod')}}prod{{/if}}"]
         },
         {
             "matchPackagePatterns":[
