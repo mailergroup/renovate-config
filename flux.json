@@ -20,7 +20,9 @@
         },
         {
             "fileMatch":[
-                "^base/.+/helm-release.yaml$"
+                "mailer.+\\.yaml$",
+                "clusters/.+\\.yaml$",
+                "base/.+\\.yaml$"
             ],
             "matchStrings":[
                 "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?tag: .*?(?<currentValue>.*)"
