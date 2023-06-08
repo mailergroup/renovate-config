@@ -4,7 +4,8 @@
     ],
     "enabledManagers":[
         "regex",
-        "github-actions"
+        "github-actions",
+        "kubernetes"
     ],
     "regexManagers":[
         {
