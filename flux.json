@@ -32,6 +32,17 @@
         },
         {
             "fileMatch":[
+                "mailer.+\\.yaml$",
+                "clusters/.+\\.yaml$",
+                "base/.+\\.yaml$"
+            ],
+            "matchStrings":[
+                "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?image: .*?:(?<currentValue>.*)"
+            ],
+            "datasourceTemplate":"docker"
+        },
+        {
+            "fileMatch":[
                 "^.pre-commit-config.yaml$"
             ],
             "matchStrings":[
