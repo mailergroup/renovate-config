@@ -5,8 +5,16 @@
     "enabledManagers":[
         "regex",
         "github-actions",
-        "kubernetes"
+        "kubernetes",
+        "flux"
     ],
+    "flux": {
+        "fileMatch": [
+            "mailer.+\\.ya?ml$",
+            "clusters/.+\\.ya?ml$",
+            "base/.+\\.ya?ml$"
+        ]
+    },
     "regexManagers":[
         {
             "fileMatch":[
