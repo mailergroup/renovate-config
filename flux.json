@@ -70,6 +70,15 @@
             "addLabels":["helm", "{{#if (containsString packageFileDir 'clusters/staging')}}staging{{/if}}", "{{#if (containsString packageFileDir 'clusters/dev')}}dev{{/if}}", "{{#if (containsString packageFileDir 'clusters/prod')}}prod{{/if}}", "{{#if (containsString packageFileDir 'base/')}}base{{/if}}"]
         },
         {
+            "matchDatasources":[
+                "docker"
+            ],
+            "separateMinorPatch":true,
+            "ignoreDeprecated":true,
+            "additionalBranchPrefix":"{{baseDir}}-",
+            "addLabels":["docker", "{{#if (containsString packageFileDir 'clusters/staging')}}staging{{/if}}", "{{#if (containsString packageFileDir 'clusters/dev')}}dev{{/if}}", "{{#if (containsString packageFileDir 'clusters/prod')}}prod{{/if}}", "{{#if (containsString packageFileDir 'base/')}}base{{/if}}"]
+        },
+        {
             "matchPackagePatterns":[
                 "^victoriametrics"
             ],
