@@ -31,13 +31,6 @@
             "datasourceTemplate":"docker"
         },
         {
-            "fileMatch":[".github\/workflows\/.*.(?:yaml|yml)"],
-            "matchStrings":[
-                "image: (?:\"*)(?:.*?\/mailergroup\/)(?<depName>[a-z0-9.\/-]+)(?::(?<currentValue>[a-z0-9.-]+))?(?:\"*)"
-            ],
-            "datasourceTemplate":"docker"
-        },
-        {
             "fileMatch":["(?:helm|helmchart)/values.(?:dev|prod|staging|production).(?:yaml|yml)"],
             "matchStrings":[
                 "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)?\n.*?image: .*?:(?<currentValue>.*)"
